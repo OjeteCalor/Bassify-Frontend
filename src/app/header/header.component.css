@@ -1,0 +1,26 @@
+header {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding: 1em;
+
+	margin-bottom: 1em;
+	border-bottom: var(--header-border);
+	background: var(--header-background);
+}
+header div{
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	height: var(--header-height);
+}
+
+header a {
+	display: block;
+	margin-left: 0.2em;
+	margin-right: 0.2em;
+}
+
+header img {
+	height: var(--header-height);
+}
