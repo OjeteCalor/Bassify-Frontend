@@ -1,0 +1,26 @@
+.targeta {
+	width: 100px;
+	height: 200px;
+	background-color: aqua;
+	transition: 1s;
+}
+.targeton:has(.tilt-der:hover) .targeta {
+	transform: rotateZ(10deg);
+	background-color: green;
+}
+.targeton:has(.tilt-izq:hover) .targeta {
+	transform: rotateZ(-10deg);
+	background-color: red;
+}
+
+.boton {
+	width: 100px;
+	height: 100px;
+	margin: 5px;
+}
+.tilt-der {
+	background-color: green;
+}
+.tilt-izq {
+	background-color: red;
+}
