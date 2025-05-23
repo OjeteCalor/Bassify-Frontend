@@ -6,6 +6,7 @@ header {
 
 	margin-bottom: 1em;
 	border-bottom: var(--header-border);
+	background: var(--header-background);
 }
 header div{
 	display: flex;
