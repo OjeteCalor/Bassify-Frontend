@@ -10,9 +10,16 @@ header {
 header div{
 	display: flex;
 	flex-direction: row;
+	align-items: center;
+	height: var(--header-height);
 }
 
 header a {
 	display: block;
-	margin: 0.2em;
+	margin-left: 0.2em;
+	margin-right: 0.2em;
+}
+
+header img {
+	height: var(--header-height);
 }
