@@ -1,0 +1,18 @@
+header {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding: 1em;
+
+	margin-bottom: 1em;
+	border-bottom: var(--header-border);
+}
+header div{
+	display: flex;
+	flex-direction: row;
+}
+
+header a {
+	display: block;
+	margin: 0.2em;
+}
