@@ -1,2 +1,14 @@
-<div class="cuadrado" [class.inclinado]="hover"></div>
-<div class="triger" (mouseenter)="hover = true" (mouseleave)="hover = false"></div>
+<div class="cuadrado"
+     [class.tilted-left]="tilt === 'left'"
+     [class.tilted-right]="tilt === 'right'">
+</div>
+
+<div class="trigger-right"
+     (mouseenter)="tilt='right'" 
+     (mouseleave)="tilt=null">
+</div>
+
+<div class="trigger-left"
+     (mouseenter)="tilt='left'" 
+     (mouseleave)="tilt=null">
+</div>

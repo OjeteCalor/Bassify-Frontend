@@ -7,5 +7,5 @@ import { Component } from '@angular/core';
   styleUrl: './cuadrado.component.css'
 })
 export class CuadradoComponent {
-  hover=false;
+  tilt:string | null=null;
 }
