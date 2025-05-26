@@ -1,26 +1,86 @@
-.targeta {
-	width: 100px;
-	height: 200px;
-	background-color: aqua;
-	transition: 1s;
-}
-.targeton:has(.tilt-der:hover) .targeta {
-	transform: rotateZ(10deg);
-	background-color: green;
-}
-.targeton:has(.tilt-izq:hover) .targeta {
-	transform: rotateZ(-10deg);
-	background-color: red;
+	
+
+
+.discover-conteiner{
+	width: 100vw;
+	height: 80vh;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
 }
 
-.boton {
-	width: 100px;
-	height: 100px;
-	margin: 5px;
+.discover-conteiner:has(.discover-cancel:hover) .song{
+	transform: rotateZ(-15deg);
 }
-.tilt-der {
-	background-color: green;
+
+.discover-conteiner:has(.discover-cancel:active) .song{
+	transform: translateX(-300px);
 }
-.tilt-izq {
-	background-color: red;
+
+.discover-conteiner:has(.discover-acept:hover) .song{
+	transform: rotateZ(15deg);
+}
+
+.discover-conteiner:has(.discover-acept:active) .song{
+	transform: translateX(300px);
+}
+
+.discover-cancel{
+	width: 15vw;
+	display: flex;
+	flex-direction: column;
+}
+
+.discover-cancel img{
+	margin: 100% 50%;
+	width: 50%;
+}
+
+.discover-acept{
+	width: 15vw;
+	display: flex;
+	flex-direction: column;
+}
+
+.discover-acept img{
+	margin: 100% 0%;
+	width: 50%;
+}
+
+.discover-song{
+	width: 35vw;
+	margin: 0 5vw;
+
+}
+
+.card{
+	width: 21%;
+	height: 65%;
+	border-radius: 20px;
+	transition: 0.5s;
+	position: absolute;
+	display: flex;
+	flex-direction: column;
+}
+
+.song{
+	background-color: rgb(255, 196, 0);
+	margin: 3.5% 7.5%;
+}
+
+.song-next{
+	margin: 3% 7%;
+	background-color: blue;
+}
+
+.card-img{
+	width: 80%;
+	height: 50%;
+	background-color: white;
+	margin: 20px 27px;
+	border-radius: 15px;
+}
+
+.card-info{
+	margin: 0 27px;
 }
