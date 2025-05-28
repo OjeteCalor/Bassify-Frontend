@@ -19,6 +19,7 @@ header a {
 	display: block;
 	margin-left: 0.2em;
 	margin-right: 0.2em;
+	text-decoration: none;
 }
 
 header img {
