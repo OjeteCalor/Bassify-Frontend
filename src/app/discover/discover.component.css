@@ -13,17 +13,17 @@
 	transform: rotateZ(-15deg);
 }
 
-.discover-conteiner:has(.discover-cancel:active) .song{
+/*.discover-conteiner:has(.discover-cancel:active) .song{
 	transform: translateX(-300px);
-}
+}*/
 
 .discover-conteiner:has(.discover-acept:hover) .song{
 	transform: rotateZ(15deg);
 }
 
-.discover-conteiner:has(.discover-acept:active) .song{
+/*.discover-conteiner:has(.discover-acept:active) .song{
 	transform: translateX(300px);
-}
+}*/
 
 .discover-cancel{
 	width: 15vw;

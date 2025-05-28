@@ -6,9 +6,6 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./discover.component.css']
 })
 export class DiscoverComponent {
-  movimiento: string = 'translateX(0)';
-  aceptCard(){
-    this.movimiento = 'translateX(100px)';
-  }
+
 
 }
