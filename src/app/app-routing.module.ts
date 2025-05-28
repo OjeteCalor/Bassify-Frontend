@@ -4,12 +4,15 @@ import { AboutUsComponent } from './aboutUs/aboutUs.component';
 import { AccountManagementComponent } from './accountManagement/accountManagement.component';
 import { SettingsComponent } from './settings/settings.component';
 import { DiscoverComponent } from './discover/discover.component';
-import { CallbackComponent } from './callback/callback.component';
 import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './accountManagement/login/login.component';
+import { CallbackComponent } from './callback/callback.component';
 
 const routes: Routes = [
 	{ path: 'home', component: HomeComponent },
-	{ path: 'acc', component: AccountManagementComponent },
+	{ path: 'acc', component: AccountManagementComponent, children:[
+		{path: 'login', component: LoginComponent}
+	]},
 	{ path: 'settings', component: SettingsComponent },
 	{ path: 'discover', component: DiscoverComponent },
 	{ path: 'about-us', component: AboutUsComponent },
