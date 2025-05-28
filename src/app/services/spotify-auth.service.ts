@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class SpotifyAuthService {
-  clientId = '5c39287da05b4fff8d4aa4dc6856a689';
-  redirectUri = 'http://127.0.0.1:4200/callback';
-  scope = 'user-read-email user-read-private';
+  clientId = environment.spotifyClientId;
+  redirectUri = environment.spotifyRedirectUri;
+  scope = environment.spotifyScope;
 
   codeVerifier = '';
 
