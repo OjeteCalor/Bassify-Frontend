@@ -17,7 +17,8 @@ import { AccountManagementModule } from './accountManagement/accountManagement.m
     BrowserModule,
     AppRoutingModule,
     CommonModule,
-    HeaderComponent
+    HeaderComponent,
+    HttpClientModule,
 ],
   providers: [],
   bootstrap: [AppComponent]
