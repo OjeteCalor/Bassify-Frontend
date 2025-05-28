@@ -1,5 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 :root{
+
+	/*SCP == spotify color pallete */
+	--SCP-green: #1db954;
+	--SCP-black: #121212;
+	--SCP-darkgray: #212121;
+	--SCP-gray: #535353;
+	--SCP-lightgray: #b3b3b3;
+
+
 	--default-bg-color: #000; /* the color in case the background image doesnt load */
 	--default-txt-color: #fff;
 	
@@ -9,6 +18,13 @@
 
 
 	--main-div-bg: #0009;
+
+
+	--genres-checkbox-bg: var(--SCP-gray);
+	--genres-checkbox-bg-hover: var(--SCP-lightgray);
+	--genres-checkbox-bg-selected: var(--SCP-green);
+	--genres-checkbox-bg-selected-hover: color-mix(in srgb, var(--SCP-green) 80%, #fff 20%);
+
 }
 
 * {
@@ -36,4 +52,47 @@ body {
 	border-radius: 1em;
 
 	background: var(--main-div-bg);
+}
+
+
+
+/* checkboxes with text inside, ex: genres selectors */
+.checkbox-text {
+	display: inline;
+	margin: 0.2em;
+	position: relative;
+
+	background: var(--genres-checkbox-bg);
+	border: 2px solid #0006;
+	text-align: center;
+
+	padding: 0.2em 0.5em;
+	border-radius: 10px;
+	
+	transition: background 0.2s ease;
+}
+
+.checkbox-text [type="checkbox"]{
+	position: absolute;
+	top: 0px;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	
+	cursor: pointer;
+	opacity: 0;
+}
+
+.checkbox-text:has([type="checkbox"]:focus-visible),
+.checkbox-text:has([type="checkbox"]:hover) {
+	background: var(--genres-checkbox-bg-hover);
+}
+
+.checkbox-text:has([type="checkbox"]:checked) {
+	background: var(--genres-checkbox-bg-selected);
+}
+
+.checkbox-text:has([type="checkbox"]:checked:focus-visible),
+.checkbox-text:has([type="checkbox"]:checked:hover) {
+	background: var(--genres-checkbox-bg-selected-hover);
 }
