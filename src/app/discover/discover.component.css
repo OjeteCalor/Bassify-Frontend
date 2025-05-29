@@ -57,18 +57,19 @@
 	width: 21%;
 	height: 65%;
 	border-radius: 20px;
-	transition: 0.5s;
 	position: absolute;
 	display: flex;
 	flex-direction: column;
 }
 
 .song{
+	transition: transform 0.5s ease, opacity 0.5s ease;
 	background-color: rgb(255, 196, 0);
 	margin: 3.5% 7.5%;
 }
 
 .song-next{
+	transition: 0.5s;
 	margin: 3% 7%;
 	background-color: blue;
 }
@@ -76,11 +77,24 @@
 .card-img{
 	width: 80%;
 	height: 50%;
-	background-color: white;
+	background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 	margin: 20px 27px;
 	border-radius: 15px;
 }
 
 .card-info{
 	margin: 0 27px;
+}
+
+
+.move-left {
+  transform: translateX(-150vw);
+  opacity: 0;
+}
+
+.move-right {
+  transform: translateX(150vw);
+  opacity: 0;
 }
