@@ -1,45 +1,17 @@
-
-  [
+{
+  "tracks": [
     {
       "id": "5RIVoVdkLl48B45dYQPMjD",
       "img": "https://universalmusiconline.es/cdn/shop/products/Starboy.jpg?v=1646737544",
       "name": "Blinding Lights",
-      "artist": "The Weeknd",
-      "genre": "Pop"
+      "author": "The Weeknd",
+      "genres": "Pop"
     },
     {
       "id": "7dKjDfkFgDf5Dbv0T4Hqb7",
       "img": "https://i.scdn.co/image/ab67616d0000b273e8b066f70c206551210d902b",
       "name": "Bohemian Rhapsody",
-      "artist": "Queen",
-      "genre": "Rock"
-    },
-     {
-      "id": "7dKjDfkFgDf5Dbv0T4Hqb7",
-      "img": "https://i.scdn.co/image/ab67616d0000b273e8b066f70c206551210d902b",
-      "name": "Bohemian Rhapsody",
-      "artist": "Queen",
-      "genre": "Rock"
-    },
-     {
-      "id": "7dKjDfkFgDf5Dbv0T4Hqb7",
-      "img": "https://i.scdn.co/image/ab67616d0000b273e8b066f70c206551210d902b",
-      "name": "Bohemian Rhapsody",
-      "artist": "Queen",
-      "genre": "Rock"
-    },
-     {
-      "id": "7dKjDfkFgDf5Dbv0T4Hqb7",
-      "img": "https://i.scdn.co/image/ab67616d0000b273e8b066f70c206551210d902b",
-      "name": "Bohemian Rhapsody",
-      "artist": "Queen",
-      "genre": "Rock"
-    },
-     {
-      "id": "7dKjDfkFgDf5Dbv0T4Hqb7",
-      "img": "https://i.scdn.co/image/ab67616d0000b273e8b066f70c206551210d902b",
-      "name": "Bohemian Rhapsody",
-      "artist": "Queen",
-      "genre": "Rock"
+      "author": "Queen",
+      "genres": "Rock"
     }
   ]

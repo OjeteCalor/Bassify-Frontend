@@ -1,21 +1,27 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
-import canciones from '../../../public/canciones.json'
+import { Component, OnInit } from '@angular/core';
+import { Track } from '../Class/Track';
 
 @Component({
   selector: 'app-discover',
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './discover.component.html',
-  styleUrls: ['./discover.component.css'],
-  imports: [CommonModule] 
+  styleUrls: ['./discover.component.css']
 })
-export class DiscoverComponent {
-  songs: any[] = [];
+export class DiscoverComponent implements OnInit {
+  tracks: Track[] = [];
   currentIndex: number = 0;
   isAccepted = false;
   isRejected = false;
 
-  ngOnInit() {
-    this.songs = canciones;
+  ngOnInit(): void {
+    fetch('/canciones.json')
+      .then(response => response.json())
+      .then(data => {
+        this.tracks = data.tracks.map((trackData: any) => Track.parseJSON(trackData));
+      })
+      .catch(error => console.error('Error al cargar canciones:', error));
   }
 
   acceptSong() {
