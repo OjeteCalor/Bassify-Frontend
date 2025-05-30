@@ -22,7 +22,7 @@ export class CallbackComponent implements OnInit {
           const accessToken = response.access_token;
           localStorage.setItem('access_token', accessToken);
           console.log('Token:', accessToken);
-          this.router.navigate(['/']); 
+          this.router.navigate(['/discover']); 
         });
       }
     });
