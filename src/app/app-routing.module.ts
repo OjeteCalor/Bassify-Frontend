@@ -6,7 +6,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { DiscoverComponent } from './discover/discover.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './accountManagement/login/login.component';
-import { CallbackComponent } from './callback/callback.component';
+import { CallbackComponent } from './accountManagement/callback/callback.component';
 import { LogoutComponent } from './accountManagement/logout/logout.component';
 
 const routes: Routes = [

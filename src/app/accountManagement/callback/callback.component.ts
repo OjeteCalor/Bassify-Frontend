@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { SpotifyAuthService } from '../services/spotify-auth.service';
+import { SpotifyAuthService } from '../../services/spotify-auth.service';
 
 @Component({
   selector: 'app-callback',
