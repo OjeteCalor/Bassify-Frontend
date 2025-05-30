@@ -1,18 +1,22 @@
-<div class="discover-conteiner">
+<div class="discover-conteiner" [class.no-hover]="disableHover">
   <div class="discover-cancel" (click)="rejectSong()">
     <img src="/deny.png" alt="Cancelar" />
   </div>
 
   <div class="discover-song">
+
     <div
       class="card song-next"
       *ngIf="tracks.length > currentIndex + 1"
     >
-      <div class="card-img" [ngStyle]="{'background-image': 'url(' + tracks[currentIndex + 1]?.img + ')'}"></div>
+      <div
+        class="card-img"
+        [ngStyle]="{
+          'background-image': 'url(' + tracks[currentIndex + 1].img + ')'
+        }"
+      ></div>
       <div class="card-info">
-        <h1>{{ tracks[currentIndex + 1]?.title }}</h1>
-        <p>{{ tracks[currentIndex + 1]?.artist }}</p>
-        <p>{{ tracks[currentIndex + 1]?.genre }}</p>
+        <h1>{{ tracks[currentIndex + 1].name }}</h1>
       </div>
     </div>
 
@@ -20,14 +24,18 @@
       class="card song"
       [class.move-left]="isRejected"
       [class.move-right]="isAccepted"
-      (transitionend)="onTransitionEnd()"
-      *ngIf="tracks[currentIndex]"
+      [class.hidden]="hasTransitioned"
+      (transitionend)="onTransitionEnd($event)"
+      *ngIf="tracks.length > currentIndex"
     >
-      <div class="card-img" [ngStyle]="{'background-image': 'url(' + tracks[currentIndex]?.img + ')'}"></div>
+      <div
+        class="card-img"
+        [ngStyle]="{
+          'background-image': 'url(' + tracks[currentIndex].img + ')'
+        }"
+      ></div>
       <div class="card-info">
-        <h1>{{ tracks[currentIndex].title }}</h1>
-        <p>{{ tracks[currentIndex].artist }}</p>
-        <p>{{ tracks[currentIndex].genre }}</p>
+        <h1>{{ tracks[currentIndex].name }}</h1>
       </div>
     </div>
   </div>
