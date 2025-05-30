@@ -5,27 +5,27 @@
 
 .btn-spotify {
 	background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/1/19/Spotify_logo_without_text.svg/1200px-Spotify_logo_without_text.svg.png');
-	background-position: 5px center;
-	background-size: 1em;
+	background-position: 0.2em center;
+	background-size: 1.6em;
 	background-repeat: no-repeat;
 
-	background-color: #000; /* reemplazar por el color de la paleta de spotify */
+	background-color: var(--SCP-black);
 
 	transition: background-color 0.2s ease;
 
-	/* display: block; */
+	display: inline-block;
 	padding: 0.5em;
-	padding-left: 25px;
+	padding-left: 2em;
 
 	border: 1px solid #fff;
 	border-radius: 5px;
 
 	text-decoration: none;
-
-	display: inline-block;
+	font-size: 1.2em;
+	font-weight: bolder;
 }
 
 .btn-spotify:focus-visible,
 .btn-spotify:hover {
-	background-color: #333;
+	background-color: var(--SCP-gray);
 }
