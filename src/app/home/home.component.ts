@@ -8,9 +8,5 @@ import { SpotifyAuthService } from '../services/spotify-auth.service';
 })
 export class HomeComponent {
 
-  constructor(private spotifyAuth: SpotifyAuthService) {}
 
-  loginWithSpotify() {
-    this.spotifyAuth.redirectToSpotifyLogin();
-  }
 }
