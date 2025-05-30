@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { SpotifyAuthService } from '../services/spotify-auth.service';
+import { SpotifyAuthService } from '../../services/spotify-auth.service';
 
 @Component({
   selector: 'app-callback',
-  template: `<p>Cargando...</p>`
+  template: `<p>Cargando...</p>`,
+  standalone: false
 })
 export class CallbackComponent implements OnInit {
 
