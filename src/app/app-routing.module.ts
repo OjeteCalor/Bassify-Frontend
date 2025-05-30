@@ -12,13 +12,13 @@ import { LogoutComponent } from './accountManagement/logout/logout.component';
 const routes: Routes = [
 	{ path: 'home', component: HomeComponent },
 	{ path: 'acc', component: AccountManagementComponent, children:[
+		{path: 'callback', component: CallbackComponent },
 		{path: 'login', component: LoginComponent},
 		{path: 'logout', component: LogoutComponent}
 	]},
 	{ path: 'settings', component: SettingsComponent },
 	{ path: 'discover', component: DiscoverComponent },
 	{ path: 'about-us', component: AboutUsComponent },
-	{ path: 'callback', component: CallbackComponent },
 
 	{ path: '', redirectTo: 'home', pathMatch: 'full' },
 	{ path: '**', redirectTo: 'home' }
