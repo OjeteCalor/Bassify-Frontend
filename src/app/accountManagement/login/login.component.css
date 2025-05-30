@@ -17,7 +17,7 @@
 	padding: 0.5em;
 	padding-left: 2em;
 
-	border: 1px solid #fff;
+	border: 1px solid var(--SCP-lightgray);
 	border-radius: 5px;
 
 	text-decoration: none;
