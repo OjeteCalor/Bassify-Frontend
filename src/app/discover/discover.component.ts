@@ -15,8 +15,8 @@ export class DiscoverComponent implements OnInit {
   isAccepted = false;
   isRejected = false;
   isTransitioning = false;
-  hasTransitioned = false;
   disableHover = false;
+  hasTransitioned = false;
 
   ngOnInit(): void {
     fetch('/canciones.json')
@@ -30,41 +30,45 @@ export class DiscoverComponent implements OnInit {
       .catch((error) => console.error('Error al leer el archivo:', error));
   }
 
- acceptSong() {
-  if (this.isTransitioning) return;
-  this.disableHoverTemporarily();
-  this.isAccepted = true;
-  this.isTransitioning = true;
-  this.hasTransitioned = false;
-}
+  acceptSong() {
+    if (this.isTransitioning) return;
+    this.disableHoverTemporarily();
+    this.isAccepted = true;
+    this.isTransitioning = true;
 
-rejectSong() {
-  if (this.isTransitioning) return;
-  this.disableHoverTemporarily();
-  this.isRejected = true;
-  this.isTransitioning = true;
-  this.hasTransitioned = false;
-}
+    // Suponiendo que la transición dura 1000ms (1s)
+    setTimeout(() => {
+      this.currentIndex++;
+      this.resetTransitionFlags();
+    }, 500);
+  }
 
-disableHoverTemporarily() {
-  this.disableHover = true;
-  setTimeout(() => {
-    this.disableHover = false;
-  }, 500); // 1 segundo
-}
+  rejectSong() {
+    if (this.isTransitioning) return;
+    this.disableHoverTemporarily();
+    this.isRejected = true;
+    this.isTransitioning = true;
 
-  onTransitionEnd(event: TransitionEvent) {
-    // Solo actuamos cuando termine la transición de transform o opacity
-    if ((event.propertyName === 'transform' || event.propertyName === 'opacity') && (this.isAccepted || this.isRejected)) {
-      this.hasTransitioned = true;
+    // Suponiendo que la transición dura 1000ms (1s)
+    setTimeout(() => {
+      this.currentIndex++;
+      this.resetTransitionFlags();
+    }, 500);
+  }
 
-      setTimeout(() => {
-        this.currentIndex++;
-        this.isAccepted = false;
-        this.isRejected = false;
-        this.isTransitioning = false;
-        this.hasTransitioned = false;
-      }, 100);
-    }
+  disableHoverTemporarily() {
+    this.disableHover = true;
+    setTimeout(() => {
+      this.disableHover = false;
+    }, 500);
+  }
+
+  private resetTransitionFlags() {
+    this.isAccepted = false;
+    this.isRejected = false;
+    this.isTransitioning = false;
   }
 }
+
+
+

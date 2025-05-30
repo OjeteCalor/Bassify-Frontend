@@ -60,6 +60,7 @@
   background-color: #1ED760;
   margin: 3.5% 7.5%;
   border: 2px solid #10703269;
+   transition: 1s;
 }
 
 .song-next {
@@ -67,6 +68,7 @@
   margin: 3% 7%;
   border: 2px solid #10703269;
   background-color: #1ED760;
+   transition: 1s;
 }
 
 .card-img {
@@ -95,4 +97,11 @@
 
 .hidden {
   display: none;
+}
+
+
+.genre-list{
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
