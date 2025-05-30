@@ -1,23 +1,26 @@
+import { Artist } from "./Artist";
+
 export class Track {
-	id: number
+	
+	id: string
 	name: string
-	img: string
+	author: Artist
 
 	constructor(
-		id: number,
+		id: string,
 		name: string,
-		img: string
+		author: Artist
 	) {
 		this.id = id;
 		this.name = name;
-		this.img = img;
+		this.author = author;
 	}
 
 	static parseJSON(json: any): Track {
 		return new Track(
 			json['id'],
 			json['name'],
-			json['img'],
+			Artist.parseJSON(json['author'])
 		);
 	}
 }
