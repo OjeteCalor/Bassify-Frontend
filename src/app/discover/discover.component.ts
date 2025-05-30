@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 import { LikedTrack } from '../Class/LikedTrack';
 import { environment } from '../../environments/environment';
 
-
 @Component({
   selector: 'app-discover',
   templateUrl: './discover.component.html',
@@ -38,78 +37,71 @@ export class DiscoverComponent implements OnInit {
     if (this.isTransitioning) return;
     this.disableHoverTemporarily();
     this.isAccepted = true;
+    this.isRejected = false;
     this.isTransitioning = true;
 
-    // Suponiendo que la transición dura 1000ms (1s)
     setTimeout(() => {
-      this.currentIndex++;
       this.resetTransitionFlags();
-    }, 500);
+    }, 500); // duración de la transición (ajustar si es necesario)
   }
 
   rejectSong() {
     if (this.isTransitioning) return;
     this.disableHoverTemporarily();
     this.isRejected = true;
+    this.isAccepted = false;
     this.isTransitioning = true;
 
-    // Suponiendo que la transición dura 1000ms (1s)
     setTimeout(() => {
-      this.currentIndex++;
       this.resetTransitionFlags();
-    }, 500);
+    }, 500); // duración de la transición (ajustar si es necesario)
   }
 
   disableHoverTemporarily() {
     this.disableHover = true;
     setTimeout(() => {
       this.disableHover = false;
-    }, 500);
+    }, 500); // mismo tiempo que transición para evitar hover
   }
 
   private resetTransitionFlags() {
+    console.log("añadiendo cancion a lista de vistas");
+
+    // Añadir la canción actual con su estado (aceptada o rechazada)
+    const likedTrack = new LikedTrack(
+      this.tracks[this.currentIndex].id,
+      this.isAccepted,
+      this.tracks[this.currentIndex].author.genres
+    );
+    this.likedTracks.push(likedTrack);
+
+    console.log("likedTracks: ", this.likedTracks);
+
+    // Enviar datos cada 10 canciones
+    if (this.likedTracks.length >= 10) {
+      const id_user = '';
+      fetch(`${environment.apiV1Uri}/tracks/discover/listened/${id_user}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(this.likedTracks),
+      })
+        .then((response) => response.json())
+        .then((data) => {
+          if (data.status !== 200) {
+            throw new Error('Error al enviar los datos');
+          }
+          this.likedTracks = [];
+        })
+        .catch((error) =>
+          console.error('Error en la petición HTTP:', error)
+        );
+    }
+
+    // Avanzar al siguiente track y resetear flags
+    this.currentIndex++;
     this.isAccepted = false;
     this.isRejected = false;
     this.isTransitioning = false;
-	  	console.log("añadiendo cancion a lista de vistas"); // se llama dos veces
-
-			let likedTrack = new LikedTrack(this.tracks[this.currentIndex].id, this.isAccepted, this.tracks[this.currentIndex].author.genres)
-			this.likedTracks.push(likedTrack);
-
-			console.log("likedTracks: ", this.likedTracks);
-
-			// enviar datos cada 10 canciones
-			if (10 <= this.likedTracks.length) {
-				const id_user = '';
-				fetch(`${environment.apiV1Uri}/tracks/discover/listened/${id_user}`, {
-					method: 'POST',
-					headers: {'Content-Type': 'application/json'},
-					body: JSON.stringify(this.likedTracks)
-				})
-
-				.then(response => {return response.json()})
-				.then(data => {
-					if (data.status !== 200) {
-						throw new Error('Error al enviar los datos');
-					}
-					this.likedTracks = [];
-				})
-
-				.catch(error => console.error('Error en la petición HTTP:', error));
-			}
-			
-
-      setTimeout(() => {
-        this.currentIndex++;
-        this.isAccepted = false;
-        this.isRejected = false;
-        this.isTransitioning = false;
-        this.hasTransitioned = false;
-      }, 100);
-    }
-
+    this.hasTransitioned = false;
   }
 }
-
-
-

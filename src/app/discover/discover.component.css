@@ -64,7 +64,7 @@
 }
 
 .song-next {
-  transition: 0.5s;
+  transition: none;
   margin: 3% 7%;
   border: 2px solid #10703269;
   background-color: #1ED760;
