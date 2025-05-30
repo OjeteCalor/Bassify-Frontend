@@ -2,43 +2,113 @@
   "tracks": [
     {
       "id": "5RIVoVdkLl48B45dYQPMjD",
-      "img": "https://universalmusiconline.es/cdn/shop/products/Starboy.jpg?v=1646737544",
-      "name": "Blinding Lights"
+      "name": "Blinding Lights",
+      "imageUrl": "https://universalmusiconline.es/cdn/shop/products/Starboy.jpg?v=1646737544",
+      "previewUrl": "https://example.com/blinding-lights.mp3",
+      "author": {
+        "id": "a1",
+        "name": "The Weeknd",
+        "genres": ["pop", "r&b"]
+      }
     },
     {
       "id": "7dKjDfkFgDf5Dbv0T4Hqb7",
-      "img": "https://i.scdn.co/image/ab67616d0000b273e8b066f70c206551210d902b",
-      "name": "Bohemian Rhapsody"
+      "name": "Bohemian Rhapsody",
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273e8b066f70c206551210d902b",
+      "previewUrl": "https://example.com/bohemian.mp3",
+      "author": {
+        "id": "a2",
+        "name": "Queen",
+        "genres": ["rock", "classic rock"]
+      }
     },
     {
       "id": "5RIVoVdkLl48B45dYQPMjD",
-      "img": "https://universalmusiconline.es/cdn/shop/products/Starboy.jpg?v=1646737544",
-      "name": "Blinding Lights"
+      "name": "Blinding Lights",
+      "imageUrl": "https://universalmusiconline.es/cdn/shop/products/Starboy.jpg?v=1646737544",
+      "previewUrl": "https://example.com/blinding-lights.mp3",
+      "author": {
+        "id": "a1",
+        "name": "The Weeknd",
+        "genres": ["pop", "r&b"]
+      }
     },
     {
       "id": "7dKjDfkFgDf5Dbv0T4Hqb7",
-      "img": "https://i.scdn.co/image/ab67616d0000b273e8b066f70c206551210d902b",
-      "name": "Bohemian Rhapsody"
+      "name": "Bohemian Rhapsody",
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273e8b066f70c206551210d902b",
+      "previewUrl": "https://example.com/bohemian.mp3",
+      "author": {
+        "id": "a2",
+        "name": "Queen",
+        "genres": ["rock", "classic rock"]
+      }
     },
     {
       "id": "5RIVoVdkLl48B45dYQPMjD",
-      "img": "https://universalmusiconline.es/cdn/shop/products/Starboy.jpg?v=1646737544",
-      "name": "Blinding Lights"
+      "name": "Blinding Lights",
+      "imageUrl": "https://universalmusiconline.es/cdn/shop/products/Starboy.jpg?v=1646737544",
+      "previewUrl": "https://example.com/blinding-lights.mp3",
+      "author": {
+        "id": "a1",
+        "name": "The Weeknd",
+        "genres": ["pop", "r&b"]
+      }
     },
     {
       "id": "7dKjDfkFgDf5Dbv0T4Hqb7",
-      "img": "https://i.scdn.co/image/ab67616d0000b273e8b066f70c206551210d902b",
-      "name": "Bohemian Rhapsody"
+      "name": "Bohemian Rhapsody",
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273e8b066f70c206551210d902b",
+      "previewUrl": "https://example.com/bohemian.mp3",
+      "author": {
+        "id": "a2",
+        "name": "Queen",
+        "genres": ["rock", "classic rock"]
+      }
     },
     {
       "id": "5RIVoVdkLl48B45dYQPMjD",
-      "img": "https://universalmusiconline.es/cdn/shop/products/Starboy.jpg?v=1646737544",
-      "name": "Blinding Lights"
+      "name": "Blinding Lights",
+      "imageUrl": "https://universalmusiconline.es/cdn/shop/products/Starboy.jpg?v=1646737544",
+      "previewUrl": "https://example.com/blinding-lights.mp3",
+      "author": {
+        "id": "a1",
+        "name": "The Weeknd",
+        "genres": ["pop", "r&b"]
+      }
     },
     {
       "id": "7dKjDfkFgDf5Dbv0T4Hqb7",
-      "img": "https://i.scdn.co/image/ab67616d0000b273e8b066f70c206551210d902b",
-      "name": "Bohemian Rhapsody"
+      "name": "Bohemian Rhapsody",
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273e8b066f70c206551210d902b",
+      "previewUrl": "https://example.com/bohemian.mp3",
+      "author": {
+        "id": "a2",
+        "name": "Queen",
+        "genres": ["rock", "classic rock"]
+      }
+    },
+    {
+      "id": "5RIVoVdkLl48B45dYQPMjD",
+      "name": "Blinding Lights",
+      "imageUrl": "https://universalmusiconline.es/cdn/shop/products/Starboy.jpg?v=1646737544",
+      "previewUrl": "https://example.com/blinding-lights.mp3",
+      "author": {
+        "id": "a1",
+        "name": "The Weeknd",
+        "genres": ["pop", "r&b"]
+      }
+    },
+    {
+      "id": "7dKjDfkFgDf5Dbv0T4Hqb7",
+      "name": "Bohemian Rhapsody",
+      "imageUrl": "https://i.scdn.co/image/ab67616d0000b273e8b066f70c206551210d902b",
+      "previewUrl": "https://example.com/bohemian.mp3",
+      "author": {
+        "id": "a2",
+        "name": "Queen",
+        "genres": ["rock", "classic rock"]
+      }
     }
   ]
 }

@@ -50,7 +50,7 @@ disableHoverTemporarily() {
   this.disableHover = true;
   setTimeout(() => {
     this.disableHover = false;
-  }, 1000); // 1 segundo
+  }, 500); // 1 segundo
 }
 
   onTransitionEnd(event: TransitionEvent) {
