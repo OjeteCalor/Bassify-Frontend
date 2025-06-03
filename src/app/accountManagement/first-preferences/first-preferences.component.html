@@ -1,0 +1,20 @@
+
+<div class="main-window">
+	<h2>Selecciona tus generos de interes</h2>
+	<br>
+	<form #genreForm="ngForm" (ngSubmit)="onSubmit(genreForm)">
+		@for (genre of genres; track $index) {
+			<div class="checkbox-text">
+				<input
+					type="checkbox"
+					[name]="genre"
+					ngModel
+				>
+				<label for="{{genre}}">{{genre}}</label>
+			</div>
+		}
+
+		<br>
+		<input type="submit" value="Confirmar">
+	</form>
+</div>
