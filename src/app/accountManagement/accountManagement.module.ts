@@ -5,6 +5,7 @@ import { AppRoutingModule } from '../app-routing.module';
 import { AppComponent } from '../app.component';
 import { RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { provideHttpClient } from '@angular/common/http';
 
 @NgModule({
 	declarations: [
@@ -14,6 +15,9 @@ import { FormsModule } from '@angular/forms';
 		CommonModule,
 		RouterModule,
 		AccountManagementComponent
+	],
+	providers: [
+		provideHttpClient(),
 	],
 })
 export class AccountManagementModule { }

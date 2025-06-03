@@ -1,6 +1,7 @@
 
 <div class="main-window">
 	<h2>Selecciona tus generos de interes</h2>
+	<p>{{message}}</p>
 	<br>
 	<form #genreForm="ngForm" (ngSubmit)="onSubmit(genreForm)">
 		@for (genre of genres; track $index) {

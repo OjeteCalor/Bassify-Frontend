@@ -1,34 +1,38 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, Injectable, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { environment } from '../../../environments/environment';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
 	selector: 'app-first-preferences',
 	templateUrl: './first-preferences.component.html',
 	styleUrls: ['./first-preferences.component.css'],
-	imports: [FormsModule]
+	standalone: true,
+	imports: [
+		FormsModule
+	]
 })
+
+@Injectable({providedIn: 'root'})
 export class FirstPreferencesComponent implements OnInit{
+ 	private http = inject(HttpClient);
 
 	genres: string[] = [];
+	message: string = "";
 
 
   ngOnInit(): void {
 	
-	fetch(`/genres.json`, {
-	// fetch(`${environment.apiV1Uri}/tracks/genres/get`, {
-		method: 'POST',
-		headers: { 'Content-Type': 'application/json' }
-	})
-	.then((response) => response.json())
-	.then((data) => {
-		if (data.status !== 200) {
-			throw new Error('Error al enviar los datos');
+	this.message = "Cargando..."
+	this.http.get(`${environment.apiV1Uri}/tracks/genres`).subscribe(
+		(response) => {
+			console.log(response);
+			this.message = ""
+		},
+		(error) => {
+			this.message = "Error al cargar generos: " + error["message"] ;
+			console.log(error);
 		}
-		this.genres = data["genres"];
-	})
-	.catch((error) =>
-		console.error('Error en la petición HTTP:', error)
 	);
 
   }
