@@ -17,9 +17,9 @@
       ></div>
       <div class="card-info">
         <h2>{{ tracks[currentIndex+1].name }}</h2>
-        <h4>{{ tracks[currentIndex+1].author.name }}</h4>
+        <h4>{{ tracks[currentIndex+1].artist.name }}</h4>
         <ul>
-          <li class="genre-list" *ngFor="let genre of tracks[currentIndex+1].author.genres.slice(0, 3)">
+          <li class="genre-list" *ngFor="let genre of tracks[currentIndex+1].artist.genres.slice(0, 3)">
             {{ genre }}
           </li>
         </ul>
@@ -41,9 +41,9 @@
       ></div>
       <div class="card-info">
         <h2>{{ tracks[currentIndex].name }}</h2>
-        <h4>{{ tracks[currentIndex].author.name }}</h4>
+        <h4>{{ tracks[currentIndex].artist.name }}</h4>
         <ul>
-          <li class="genre-list" *ngFor="let genre of tracks[currentIndex].author.genres.slice(0, 3)">
+          <li class="genre-list" *ngFor="let genre of tracks[currentIndex].artist.genres.slice(0, 3)">
             {{ genre }}
           </li>
         </ul>

@@ -6,7 +6,7 @@ export class Track {
 	name: string
 	imageUrl:string
 	previewUrl:string
-	author: Artist
+	artist: Artist
 	
 
 	constructor(
@@ -14,13 +14,13 @@ export class Track {
 		name: string,
 		imageUrl:string,
 		previewUrl:string,
-		author: Artist
+		artist: Artist
 	) {
 		this.id = id;
 		this.name = name;
 		this.imageUrl = imageUrl;
 		this.previewUrl = previewUrl;
-		this.author = author;
+		this.artist = artist;
 	}
 
 	static parseJSON(json: any): Track {
@@ -29,7 +29,7 @@ export class Track {
 			json['name'],
 			json['imageUrl'],
 			json['previewUrl'],
-			Artist.parseJSON(json['author'])
+			Artist.parseJSON(json['artist'])
 		);
 	}
 }

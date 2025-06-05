@@ -71,7 +71,7 @@ export class DiscoverComponent implements OnInit {
     const likedTrack = new LikedTrack(
       this.tracks[this.currentIndex].id,
       this.isAccepted,
-      this.tracks[this.currentIndex].author.genres
+      this.tracks[this.currentIndex].artist.genres
     );
     this.likedTracks.push(likedTrack);
 
