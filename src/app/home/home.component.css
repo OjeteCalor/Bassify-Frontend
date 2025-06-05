@@ -1,0 +1,33 @@
+.main-window {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+
+	gap: 2em;
+}
+
+.main-window p {
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+.main-window h2 {
+	text-align: center;
+}
+
+#TeamPicture{
+	text-align: center;
+	padding-top:    2em;
+	padding-bottom: 2em;
+}
+
+#TeamPicture img{
+	width: 80%;
+}
+
+#links {
+	text-align: center;
+}
+
+.white-border{
+	border: 1px #eee solid;
+}
