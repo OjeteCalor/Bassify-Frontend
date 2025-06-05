@@ -1,7 +1,7 @@
 header {
 	display: flex;
 	flex-direction: row;
-	justify-content: space-between;
+	justify-content: start;
 	padding: 1em;
 
 	margin-bottom: 1em;
@@ -17,9 +17,15 @@ header div{
 
 header a {
 	display: block;
-	margin-left: 0.2em;
-	margin-right: 0.2em;
+	margin-left:  0.3em;
+	margin-right: 0.3em;
 	text-decoration: none;
+
+	padding: 0.3em;
+	border-radius: 0.5em;
+}
+header a:hover {
+	background-color: var(--header-button-hover);
 }
 
 header img {
