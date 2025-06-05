@@ -12,6 +12,7 @@ export class SpotifyAuthService {
 
   constructor(private http: HttpClient) {}
 
+  // Genera un código aleatorio para el PKCE
   generateCodeVerifier(length = 128): string {
     const possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
     let text = '';
@@ -22,14 +23,18 @@ export class SpotifyAuthService {
     return text;
   }
 
+  // Codifica el challenge a partir del verifier
   async generateCodeChallenge(verifier: string): Promise<string> {
     const encoder = new TextEncoder();
     const data = encoder.encode(verifier);
     const digest = await crypto.subtle.digest('SHA-256', data);
     return btoa(String.fromCharCode(...new Uint8Array(digest)))
-      .replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
+      .replace(/\+/g, '-')
+      .replace(/\//g, '_')
+      .replace(/=+$/, '');
   }
 
+  // Redirige al login de Spotify
   async redirectToSpotifyLogin() {
     const verifier = this.generateCodeVerifier();
     const challenge = await this.generateCodeChallenge(verifier);
@@ -42,11 +47,13 @@ export class SpotifyAuthService {
       scope: this.scope,
       code_challenge_method: 'S256',
       code_challenge: challenge,
+      show_dialog: 'true' // ✅ fuerza consentimiento → garantiza refresh_token
     });
 
     window.location.href = `https://accounts.spotify.com/authorize?${params.toString()}`;
   }
 
+  // Intercambia el code por access y refresh token
   getToken(code: string) {
     const verifier = localStorage.getItem('verifier') || '';
     const body = new HttpParams()
