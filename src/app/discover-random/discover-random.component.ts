@@ -5,13 +5,13 @@ import { LikedTrack } from '../Class/LikedTrack';
 import { environment } from '../../environments/environment';
 
 @Component({
-  selector: 'app-discover',
-  templateUrl: './discover.component.html',
-  styleUrls: ['./discover.component.css'],
+  selector: 'app-discover-random',
   standalone: true,
   imports: [CommonModule],
+  templateUrl: './discover-random.component.html',
+  styleUrls: ['./discover-random.component.css'],
 })
-export class DiscoverComponent implements OnInit, OnDestroy {
+export class DiscoverRandomComponent implements OnInit, OnDestroy {
   tracks: Track[] = [];
   likedTracks: LikedTrack[] = [];
   currentIndex: number = 0;
@@ -26,7 +26,7 @@ export class DiscoverComponent implements OnInit, OnDestroy {
 
   private audio = new Audio();
 
-  private isLoadingMore: boolean = false; // <-- Flag para evitar cargas duplicadas
+  private isLoadingMore: boolean = false; // Evita cargas duplicadas
 
   ngOnInit(): void {
     this.loadInitialTracks();
@@ -39,7 +39,7 @@ export class DiscoverComponent implements OnInit, OnDestroy {
     if (this.likedTracks.length > 0) {
       this.sendLikedTracks()
         .then(() => console.log('Canciones enviadas antes de salir'))
-        .catch(err => console.error('Error al enviar canciones al salir:', err));
+        .catch((err) => console.error('Error al enviar canciones al salir:', err));
     }
     this.audio.pause();
   }
@@ -76,7 +76,7 @@ export class DiscoverComponent implements OnInit, OnDestroy {
   }
 
   private resetTransitionFlags() {
-    console.log("Añadiendo canción a lista de vistas");
+    console.log('Añadiendo canción a lista de vistas');
 
     const track = this.tracks[this.currentIndex];
 
@@ -88,23 +88,25 @@ export class DiscoverComponent implements OnInit, OnDestroy {
       {
         name: track.artist.name,
         id: track.artist.id,
-        genres: track.artist.genres ?? []
+        genres: track.artist.genres ?? [],
       },
       this.isAccepted
     );
 
     this.likedTracks.push(likedTrack);
-    console.log("likedTracks:", this.likedTracks);
+    console.log('likedTracks:', this.likedTracks);
 
     if (this.likedTracks.length >= 10) {
-      this.sendLikedTracks()
-        .catch(error => console.error('Error al enviar los datos:', error));
+      this.sendLikedTracks().catch((error) =>
+        console.error('Error al enviar los datos:', error)
+      );
     }
 
     this.currentIndex++;
     this.loadAudioPreview();
 
-    if ((this.tracks.length - this.currentIndex) <= 10 && !this.isLoadingMore) {
+    // Si quedan 10 o menos canciones, y no estamos ya cargando más, pedimos más
+    if (this.tracks.length - this.currentIndex <= 10 && !this.isLoadingMore) {
       this.loadMoreTracks();
     }
 
@@ -120,7 +122,7 @@ export class DiscoverComponent implements OnInit, OnDestroy {
   private loadInitialTracks(): void {
     console.log('Cargando canciones iniciales (random)...');
     fetch(`${environment.apiV1Uri}/tracks/discover/random`)
-      .then(response => {
+      .then((response) => {
         if (!response.ok) {
           throw new Error('Error al cargar canciones iniciales');
         }
@@ -134,21 +136,17 @@ export class DiscoverComponent implements OnInit, OnDestroy {
         console.log('Canciones iniciales cargadas:', this.tracks.length);
         this.loadAudioPreview();
       })
-      .catch(error => console.error('Error al cargar canciones iniciales:', error));
+      .catch((error) =>
+        console.error('Error al cargar canciones iniciales:', error)
+      );
   }
 
   private async loadMoreTracks(): Promise<void> {
-    const spotifyId = localStorage.getItem('spotifyId') ?? '';
-    if (!spotifyId) {
-      console.warn('Spotify ID no encontrado en localStorage');
-      return;
-    }
+    this.isLoadingMore = true; // <-- activo flag
 
-    this.isLoadingMore = true;
-
-    console.log('Cargando más canciones según preferencias...');
+    console.log('Cargando más canciones random...');
     try {
-      const response = await fetch(`${environment.apiV1Uri}/tracks/discover/preferences/${spotifyId}`);
+      const response = await fetch(`${environment.apiV1Uri}/tracks/discover/random`);
       if (!response.ok) {
         throw new Error('Error al cargar más canciones');
       }
@@ -159,11 +157,10 @@ export class DiscoverComponent implements OnInit, OnDestroy {
         this.tracks.push(newTrack);
       }
       console.log('Se agregaron nuevas canciones. Total:', this.tracks.length);
-
     } catch (error) {
       console.error('Error al cargar nuevas canciones:', error);
     } finally {
-      this.isLoadingMore = false;
+      this.isLoadingMore = false; // <-- desactivo flag
     }
   }
 
@@ -175,11 +172,14 @@ export class DiscoverComponent implements OnInit, OnDestroy {
     }
 
     console.log('Enviando canciones escuchadas al backend...');
-    const response = await fetch(`${environment.apiV1Uri}/tracks/discover/listened/${spotifyId}`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(this.likedTracks),
-    });
+    const response = await fetch(
+      `${environment.apiV1Uri}/tracks/discover/listened/${spotifyId}`,
+      {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(this.likedTracks),
+      }
+    );
 
     if (!response.ok) {
       throw new Error('Error al enviar los datos');
@@ -214,11 +214,12 @@ export class DiscoverComponent implements OnInit, OnDestroy {
       this.audio.load();
 
       setTimeout(() => {
-        this.audio.play()
+        this.audio
+          .play()
           .then(() => {
             this.isPlaying = true;
           })
-          .catch(err => {
+          .catch((err) => {
             console.log('Error al iniciar reproducción automática:', err);
             this.isPlaying = false;
           });

@@ -9,6 +9,7 @@ import { LoginComponent } from './accountManagement/login/login.component';
 import { CallbackComponent } from './accountManagement/callback/callback.component';
 import { LogoutComponent } from './accountManagement/logout/logout.component';
 import { FirstPreferencesComponent } from './accountManagement/first-preferences/first-preferences.component';
+import { DiscoverRandomComponent } from './discover-random/discover-random.component';
 
 const routes: Routes = [
 	{ path: 'home', component: HomeComponent },
@@ -20,6 +21,7 @@ const routes: Routes = [
 	]},
 	{ path: 'settings', component: SettingsComponent },
 	{ path: 'discover', component: DiscoverComponent },
+	{ path: 'discoverRandom', component: DiscoverRandomComponent },
 	{ path: 'about-us', component: AboutUsComponent },
 
 	{ path: '', redirectTo: 'home', pathMatch: 'full' },

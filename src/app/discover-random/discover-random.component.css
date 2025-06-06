@@ -1,0 +1,79 @@
+.discover-conteiner {
+  width: 100vw;
+  height: 80vh;
+  display: flex;
+  justify-content: center;
+}
+
+.discover-conteiner:has(.discover-cancel:hover) .song {
+  transform: rotateZ(-15deg);
+}
+
+.discover-conteiner:has(.discover-acept:hover) .song {
+  transform: rotateZ(15deg);
+}
+
+.discover-conteiner.no-hover:hover .song {
+  transform: none !important;
+  transition: 1s;
+}
+
+.discover-cancel,
+.discover-acept {
+  width: 15vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.discover-cancel img,
+.discover-acept img {
+  width: 50%;
+  margin: auto;
+}
+
+.discover-song {
+  width: 35vw;
+  margin: 0 5vw;
+}
+
+.card {
+  width: 21%;
+  height: 65%;
+  border-radius: 20px;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+}
+
+.song {
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  background-color: #1ED760;
+  margin: 3.5% 7.5%;
+  border: 2px solid #10703269;
+}
+
+.song-next {
+  background-color: #1ED760;
+  margin: 3% 7%;
+  border: 2px solid #10703269;
+  transition: 1s;
+}
+
+.card-img {
+  width: 80%;
+  height: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  margin: 20px auto;
+  border-radius: 15px;
+}
+
+.card-info {
+  margin: 0 27px;
+}
+
+.fade-out {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
