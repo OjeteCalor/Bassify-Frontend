@@ -77,3 +77,16 @@
   opacity: 0;
   transition: opacity 0.5s ease;
 }
+
+.genres-list{
+	display: flex;
+	flex-direction: row;
+}
+
+.genre-list {
+	display: inline-block;
+	margin: 0.1em;
+	padding: 0.2em;
+	background-color: var(--discover-genre-list-bg);
+	border-radius: 0.2em;
+}

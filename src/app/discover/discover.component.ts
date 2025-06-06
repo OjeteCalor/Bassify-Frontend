@@ -3,6 +3,7 @@ import { Track } from '../Class/Track';
 import { CommonModule } from '@angular/common';
 import { LikedTrack } from '../Class/LikedTrack';
 import { environment } from '../../environments/environment';
+import { Artist } from '../Class/Artist';
 
 @Component({
   selector: 'app-discover',
@@ -110,21 +111,30 @@ export class DiscoverComponent implements OnInit {
   private loadInitialTracks(): void {
     console.log('Cargando canciones iniciales (random)...');
     fetch(`${environment.apiV1Uri}/tracks/discover/random`)
-      .then(response => {
+	.then(response => {
         if (!response.ok) {
           throw new Error('Error al cargar canciones iniciales');
         }
         return response.json();
-      })
-      .then((data) => {
+	})
+	.then((data) => {
         for (const trackData of data) {
           const track = Track.parseJSON(trackData);
           this.tracks.push(track);
         }
         console.log('Canciones iniciales cargadas:', this.tracks.length);
         this.loadAudioPreview(); // Carga audio preview si ya hay tracks
-      })
-      .catch(error => console.error('Error al cargar canciones iniciales:', error));
+	})
+	.catch(error => console.error('Error al cargar canciones iniciales:', error));
+
+	this.tracks.push(new Track(
+	  'generic-id',
+	  'Canción Genérica',
+	  'https://via.placeholder.com/300',
+	  'https://p.scdn.co/mp3-preview/generic-preview-url',
+	  "",
+	  new Artist("dadw","nombre artista",["ROCK", "ROCK", "ROCK"])
+	));
   }
 
   private loadMoreTracks(): void {
