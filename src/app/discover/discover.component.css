@@ -2,7 +2,6 @@
   width: 100vw;
   height: 80vh;
   display: flex;
-  flex-direction: row;
   justify-content: center;
 }
 
@@ -16,28 +15,20 @@
 
 .discover-conteiner.no-hover:hover .song {
   transform: none !important;
+  transition: 1s;
 }
 
-.discover-cancel {
-  width: 15vw;
-  display: flex;
-  flex-direction: column;
-}
-
-.discover-cancel img {
-  margin: 100% 50%;
-  width: 50%;
-}
-
+.discover-cancel,
 .discover-acept {
   width: 15vw;
   display: flex;
   flex-direction: column;
 }
 
+.discover-cancel img,
 .discover-acept img {
-  margin: 100% 0%;
   width: 50%;
+  margin: auto;
 }
 
 .discover-song {
@@ -52,7 +43,6 @@
   position: absolute;
   display: flex;
   flex-direction: column;
-  transition: 5s;
 }
 
 .song {
@@ -60,15 +50,13 @@
   background-color: #1ED760;
   margin: 3.5% 7.5%;
   border: 2px solid #10703269;
-   transition: 1s;
 }
 
 .song-next {
-  transition: none;
+  background-color: #1ED760;
   margin: 3% 7%;
   border: 2px solid #10703269;
-  background-color: #1ED760;
-   transition: 1s;
+  transition: 1s;
 }
 
 .card-img {
@@ -77,7 +65,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  margin: 20px 27px;
+  margin: 20px auto;
   border-radius: 15px;
 }
 
@@ -85,23 +73,7 @@
   margin: 0 27px;
 }
 
-.move-left {
-  transform:translateX(-150vw);
+.fade-out {
   opacity: 0;
-}
-
-.move-right {
-  transform: translateX(150vw);
-  opacity: 0;
-}
-
-.hidden {
-  display: none;
-}
-
-
-.genre-list{
-  list-style: none;
-  padding: 0;
-  margin: 0;
+  transition: opacity 0.5s ease;
 }
