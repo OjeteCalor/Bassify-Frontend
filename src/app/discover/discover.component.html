@@ -1,10 +1,9 @@
 <div class="discover-conteiner" [class.no-hover]="disableHover">
   <div class="discover-cancel" (click)="rejectSong()">
-    <img src="/deny.png" alt="Cancelar" />
+    <img src="/icons/deny.png" alt="Cancelar" />
   </div>
 
   <div class="discover-song">
-
     <div
       class="card song-next"
       *ngIf="tracks.length > currentIndex + 1"
@@ -12,47 +11,65 @@
       <div
         class="card-img"
         [ngStyle]="{
-          'background-image': 'url(' + tracks[currentIndex + 1].imageUrl + ')'
+          'background-image': 'url(' + tracks[currentIndex + 1].imageURL + ')'
         }"
       ></div>
       <div class="card-info">
-        <h2>{{ tracks[currentIndex+1].name }}</h2>
-        <h4>{{ tracks[currentIndex+1].artist.name }}</h4>
+        <h2>{{ tracks[currentIndex + 1].name }}</h2>
+        <h4>{{ tracks[currentIndex + 1].artist.name }}</h4>
         <ul>
-          <li class="genre-list" *ngFor="let genre of tracks[currentIndex+1].artist.genres.slice(0, 3)">
+          <!--<li class="genre-list" *ngFor="let genre of tracks[currentIndex+1].artist.genres.slice(0, 3)">
             {{ genre }}
-          </li>
+          </li>-->
         </ul>
       </div>
     </div>
 
     <div
       class="card song"
-      [class.move-left]="isRejected"
-      [class.move-right]="isAccepted"
+      [class.fade-out]="isAccepted || isRejected"
       [class.hidden]="hasTransitioned"
       *ngIf="tracks.length > currentIndex"
     >
       <div
         class="card-img"
         [ngStyle]="{
-          'background-image': 'url(' + tracks[currentIndex].imageUrl + ')'
+          'background-image': 'url(' + tracks[currentIndex].imageURL + ')'
         }"
       ></div>
       <div class="card-info">
         <h2>{{ tracks[currentIndex].name }}</h2>
         <h4>{{ tracks[currentIndex].artist.name }}</h4>
         <ul>
-          <li class="genre-list" *ngFor="let genre of tracks[currentIndex].artist.genres.slice(0, 3)">
+          <!--<li class="genre-list" *ngFor="let genre of tracks[currentIndex].artist.genres.slice(0, 3)">
             {{ genre }}
-          </li>
+          </li>-->
         </ul>
+        <br/>
 
+        <button (click)="togglePlayback()">
+          <img
+            [src]="isPlaying ? '/icons/pause.svg' : '/icons/play.svg'"
+            alt="{{ isPlaying ? 'Pausar' : 'Reproducir' }}"
+            width="24"
+            height="24"
+          />
+        </button>
+        <br/>
+          <input
+            type="range"
+            min="0"
+            max="1"
+            step="0.01"
+            [value]="volume"
+            (input)="onVolumeChange($event)"
+            class="volume-slider"
+          />
       </div>
     </div>
   </div>
 
   <div class="discover-acept" (click)="acceptSong()">
-    <img src="/acept.png" alt="Aceptar" />
+    <img src="/icons/acept.png" alt="Aceptar" />
   </div>
 </div>
