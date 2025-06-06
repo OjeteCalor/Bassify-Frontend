@@ -127,14 +127,14 @@ export class DiscoverComponent implements OnInit {
 	})
 	.catch(error => console.error('Error al cargar canciones iniciales:', error));
 
-	this.tracks.push(new Track(
-	  'generic-id',
-	  'Canción Genérica',
-	  'https://via.placeholder.com/300',
-	  'https://p.scdn.co/mp3-preview/generic-preview-url',
-	  "",
-	  new Artist("dadw","nombre artista",["ROCK", "ROCK", "ROCK"])
-	));
+	// this.tracks.push(new Track(
+	//   'generic-id',
+	//   'Canción Genérica',
+	//   'https://via.placeholder.com/300',
+	//   'https://p.scdn.co/mp3-preview/generic-preview-url',
+	//   "",
+	//   new Artist("dadw","nombre artista",["ROCK", "ROCK", "ROCK"])
+	// ));
   }
 
   private loadMoreTracks(): void {
