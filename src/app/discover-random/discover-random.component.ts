@@ -11,7 +11,7 @@ import { environment } from '../../environments/environment';
   templateUrl: './discover-random.component.html',
   styleUrls: ['./discover-random.component.css'],
 })
-export class DiscoverRandomComponent implements OnInit, OnDestroy {
+export class DiscoverRandomComponent implements OnInit {
   tracks: Track[] = [];
   likedTracks: LikedTrack[] = [];
   currentIndex: number = 0;
@@ -35,14 +35,6 @@ export class DiscoverRandomComponent implements OnInit, OnDestroy {
     this.loadAudioPreview();
   }
 
-  ngOnDestroy(): void {
-    if (this.likedTracks.length > 0) {
-      this.sendLikedTracks()
-        .then(() => console.log('Canciones enviadas antes de salir'))
-        .catch((err) => console.error('Error al enviar canciones al salir:', err));
-    }
-    this.audio.pause();
-  }
 
   acceptSong() {
     if (this.isTransitioning) return;

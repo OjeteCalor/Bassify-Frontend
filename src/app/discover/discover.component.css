@@ -5,11 +5,11 @@
   justify-content: center;
 }
 
-.discover-conteiner:has(.discover-cancel:hover) .song {
+.discover-conteiner:has(.imgCancel:hover) .song {
   transform: rotateZ(-15deg);
 }
 
-.discover-conteiner:has(.discover-acept:hover) .song {
+.discover-conteiner:has(.imgAcept:hover) .song {
   transform: rotateZ(15deg);
 }
 
@@ -25,8 +25,8 @@
   flex-direction: column;
 }
 
-.discover-cancel img,
-.discover-acept img {
+.imgCancel,
+.imgAcept {
   width: 50%;
   margin: auto;
 }

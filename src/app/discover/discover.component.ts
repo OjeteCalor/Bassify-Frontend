@@ -3,7 +3,7 @@ import { Track } from '../Class/Track';
 import { CommonModule } from '@angular/common';
 import { LikedTrack } from '../Class/LikedTrack';
 import { environment } from '../../environments/environment';
-import { Artist } from '../Class/Artist';
+
 
 @Component({
   selector: 'app-discover',
@@ -12,7 +12,7 @@ import { Artist } from '../Class/Artist';
   standalone: true,
   imports: [CommonModule],
 })
-export class DiscoverComponent implements OnInit, OnDestroy {
+export class DiscoverComponent implements OnInit {
   tracks: Track[] = [];
   likedTracks: LikedTrack[] = [];
   currentIndex: number = 0;
@@ -36,14 +36,6 @@ export class DiscoverComponent implements OnInit, OnDestroy {
     this.loadAudioPreview();
   }
 
-  ngOnDestroy(): void {
-    if (this.likedTracks.length > 0) {
-      this.sendLikedTracks()
-        .then(() => console.log('Canciones enviadas antes de salir'))
-        .catch(err => console.error('Error al enviar canciones al salir:', err));
-    }
-    this.audio.pause();
-  }
 
   acceptSong() {
     if (this.isTransitioning) return;

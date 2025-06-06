@@ -5,11 +5,11 @@
   justify-content: center;
 }
 
-.discover-conteiner:has(.discover-cancel:hover) .song {
+.discover-conteiner img:has(.discover-cancel:hover) .song {
   transform: rotateZ(-15deg);
 }
 
-.discover-conteiner:has(.discover-acept:hover) .song {
+.discover-conteiner img:has(.discover-acept:hover) .song {
   transform: rotateZ(15deg);
 }
 
