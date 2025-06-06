@@ -58,7 +58,7 @@ body {
 
 /* checkboxes with text inside, ex: genres selectors */
 .checkbox-text {
-	display: inline;
+	display: inline-block;
 	margin: 0.2em;
 	position: relative;
 
