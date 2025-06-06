@@ -3,6 +3,7 @@ import { Track } from '../Class/Track';
 import { CommonModule } from '@angular/common';
 import { LikedTrack } from '../Class/LikedTrack';
 import { environment } from '../../environments/environment';
+import { Artist } from '../Class/Artist';
 
 @Component({
   selector: 'app-discover',
@@ -120,13 +121,13 @@ export class DiscoverComponent implements OnInit, OnDestroy {
   private loadInitialTracks(): void {
     console.log('Cargando canciones iniciales (random)...');
     fetch(`${environment.apiV1Uri}/tracks/discover/random`)
-      .then(response => {
+	.then(response => {
         if (!response.ok) {
           throw new Error('Error al cargar canciones iniciales');
         }
         return response.json();
-      })
-      .then((data) => {
+	})
+	.then((data) => {
         for (const trackData of data) {
           const track = Track.parseJSON(trackData);
           this.tracks.push(track);

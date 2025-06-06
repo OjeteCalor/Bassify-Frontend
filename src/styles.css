@@ -19,6 +19,7 @@
 
 	--main-div-bg: #000b;
 
+	--discover-genre-list-bg: #0002;
 
 	--genres-checkbox-bg: var(--SCP-gray);
 	--genres-checkbox-bg-hover: var(--SCP-lightgray);
@@ -58,7 +59,7 @@ body {
 
 /* checkboxes with text inside, ex: genres selectors */
 .checkbox-text {
-	display: inline;
+	display: inline-block;
 	margin: 0.2em;
 	position: relative;
 

@@ -17,11 +17,11 @@
       <div class="card-info">
         <h2>{{ tracks[currentIndex + 1].name }}</h2>
         <h4>{{ tracks[currentIndex + 1].artist.name }}</h4>
-        <ul>
-          <li class="genre-list" *ngFor="let genre of tracks[currentIndex+1].artist.genres.slice(0, 3)">
+        <div class="genres-list">
+          <span class="genre-list" *ngFor="let genre of tracks[currentIndex+1].artist.genres.slice(0, 3)">
             {{ genre }}
-          </li>
-        </ul>
+		  </span>
+        </div>
       </div>
     </div>
 

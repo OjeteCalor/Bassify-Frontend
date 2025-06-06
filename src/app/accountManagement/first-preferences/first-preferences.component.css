@@ -1,6 +1,5 @@
 input[type="submit"] {
 	background-color: var(--SCP-black);
-	border: none;
 
 	position: absolute;
 	bottom: 0px;
