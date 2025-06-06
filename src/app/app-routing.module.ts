@@ -20,7 +20,7 @@ class AuthGuard implements CanActivate {
 	constructor(private router: Router) {}
 
 	canActivate(): boolean {
-		if (localStorage.getItem('spotifyId')) {
+		if (sessionStorage.getItem('spotifyId')) {
 			return true;
 		}
 		this.router.navigate(['/acc/login']);

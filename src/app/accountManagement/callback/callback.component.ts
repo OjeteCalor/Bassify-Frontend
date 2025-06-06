@@ -27,7 +27,7 @@ export class CallbackComponent implements OnInit {
               next: (backendResponse) => {
                 console.log('Refresh token enviado al backend correctamente');
                 console.log('Respuesta del backend:', backendResponse);
-                localStorage.setItem('spotifyId', backendResponse.spotifyId);
+                sessionStorage.setItem('spotifyId', backendResponse.spotifyId);
                 this.router.navigate(['/acc/first-preferences']);
               },
               error: (err) => {
